@@ -15,7 +15,7 @@ public class Initialization {
 
     @BeforeTest
     public void Devicesetup() throws MalformedURLException {
-
+//setup dependency
             UiAutomator2Options opt = new UiAutomator2Options();
             opt.setDeviceName("Nexus 5X API 24");
             opt.setApp(System.getProperty("user.dir")+"\\src\\test\\resources\\apps\\nopstationCart_4.40 1.apk");
