@@ -1,7 +1,10 @@
 package testsPackage;
 
 import PagesPackage.*;
+import com.google.common.collect.ImmutableMap;
 import driverPackage.Initialization;
+//import utilityPackage.commonMethod;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 public class ProductCart extends Initialization{
@@ -11,29 +14,35 @@ public class ProductCart extends Initialization{
     productDetails_page objdetails;
 
 
+
     @Test(priority = 0)
     void AcceptApp() throws InterruptedException {
+        Thread.sleep(5000);
         objHome = new Home_page(driver);
         objHome.setAcceptbtnClk();
-        Thread.sleep(1000);
     }
 
     @Test(priority = 1)
-    void goingToelectronics() throws InterruptedException {
+    void goingToelectronics(){
         objHome.setCatagorybtn();
         objHome.setElectronicsclk();
-        Thread.sleep(1000);
+
     }
 
     @Test(priority = 2)
     void toProductDetails() throws InterruptedException {
        objlist = new ProductList_page(driver);
        objlist.setMattress_Bedroomclk();
-        Thread.sleep(1000);
+        Thread.sleep(10000);
     }
     @Test(priority = 3)
     void IncreaseProduct() throws InterruptedException {
         objdetails = new productDetails_page(driver);
+        boolean ScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "left", 100, "top", 100, "width", 100, "height", 200,
+                    "direction", "down",
+                    "percent", 6.0
+            ));
         objdetails.setAddquantity();
         Thread.sleep(1000);
     }
@@ -42,8 +51,9 @@ public class ProductCart extends Initialization{
         objdetails.setAddtocart();
         Thread.sleep(1000);
         objHome.setCartIcon();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         objHome.setHomeIcon();
+        Thread.sleep(5000);
     }
 
 }

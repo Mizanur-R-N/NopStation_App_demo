@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 public class productDetails_page {
     AppiumDriver driver;
 
-    By addquantity = By.id("com.nopstation.nopcommerce.nopstationcart:id/btnPlus");
+    By addquantity = By.xpath("//android.widget.Button[@resource-id=\"com.nopstation.nopcommerce.nopstationcart:id/btnPlus\"]");
     By addtocart = By.id("com.nopstation.nopcommerce.nopstationcart:id/btnAddToCart");
 
     public productDetails_page(AppiumDriver driver){

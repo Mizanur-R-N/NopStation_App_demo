@@ -1,7 +1,9 @@
 package testsPackage;
 
 import PagesPackage.*;
+import com.google.common.collect.ImmutableMap;
 import driverPackage.Initialization;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 public class OrderProduct extends Initialization{
@@ -16,9 +18,9 @@ public class OrderProduct extends Initialization{
 
     @Test(priority = 0)
     void AcceptApp() throws InterruptedException {
+        Thread.sleep(5000);
         objHome = new Home_page(driver);
         objHome.setAcceptbtnClk();
-        Thread.sleep(1000);
     }
 
     @Test(priority = 1)
@@ -32,11 +34,16 @@ public class OrderProduct extends Initialization{
     void toProductDetails() throws InterruptedException {
         objlist = new ProductList_page(driver);
         objlist.setMattress_Bedroomclk();
-        Thread.sleep(1000);
+        Thread.sleep(10000);
     }
     @Test(priority = 3)
     void IncreaseProduct() throws InterruptedException {
         objdetails = new productDetails_page(driver);
+        boolean ScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 100, "height", 200,
+                "direction", "down",
+                "percent", 6.0
+        ));
         objdetails.setAddquantity();
         Thread.sleep(1000);
     }
