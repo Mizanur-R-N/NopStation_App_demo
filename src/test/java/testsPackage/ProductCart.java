@@ -32,6 +32,11 @@ public class ProductCart extends Initialization{
     @Test(priority = 2)
     void toProductDetails() throws InterruptedException {
        objlist = new ProductList_page(driver);
+        boolean ScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture",
+                ImmutableMap.of("left", 100, "top", 100, "width", 100, "height", 200,
+                        "direction", "down",
+                        "percent", 6.0
+                ));
        objlist.setMattress_Bedroomclk();
         Thread.sleep(10000);
     }

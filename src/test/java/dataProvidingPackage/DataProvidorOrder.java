@@ -6,7 +6,7 @@ public class DataProvidorOrder{
     @DataProvider(name = "guestOrderCredentails")
     public static Object[][] DataSet() {
         return new Object[][]{
-                {"50000","12.0","9","2.2"}
+                {"Mizanur", "Rahaman", "mizanur@mail.com", "BS23", "Dhaka", "Mirpur", "1216"}
         };
     }
 }
